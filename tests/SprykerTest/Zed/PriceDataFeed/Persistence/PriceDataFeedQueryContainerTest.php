@@ -34,9 +34,6 @@ class PriceDataFeedQueryContainerTest extends Unit
      */
     protected $priceDataFeedTransfer;
 
-    /**
-     * @return void
-     */
     public function setUp(): void
     {
         parent::setUp();
@@ -45,9 +42,6 @@ class PriceDataFeedQueryContainerTest extends Unit
         $this->priceDataFeedTransfer = $this->createPriceDataFeedTransfer();
     }
 
-    /**
-     * @return void
-     */
     public function testGetPriceDataFeedQuery(): void
     {
         $query = $this->priceDataFeedQueryContainer
@@ -60,9 +54,6 @@ class PriceDataFeedQueryContainerTest extends Unit
         $this->assertEquals($expectedJoinedTables, $joinedTables);
     }
 
-    /**
-     * @return void
-     */
     public function testGetPriceDataFeedQueryWithJoinedTypes(): void
     {
         $this->priceDataFeedTransfer->setJoinPriceType(true);
@@ -80,9 +71,6 @@ class PriceDataFeedQueryContainerTest extends Unit
         $this->assertEquals($expectedJoinedTables, $joinedTables);
     }
 
-    /**
-     * @return \Spryker\Zed\PriceDataFeed\Persistence\PriceDataFeedQueryContainer
-     */
     protected function createPriceDataFeedQueryContainer(): PriceDataFeedQueryContainer
     {
         $priceDataFeedQueryContainer = new PriceDataFeedQueryContainer();
@@ -90,9 +78,6 @@ class PriceDataFeedQueryContainerTest extends Unit
         return $priceDataFeedQueryContainer;
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\PriceDataFeedTransfer
-     */
     protected function createPriceDataFeedTransfer(): PriceDataFeedTransfer
     {
         $priceDataFeedTransfer = new PriceDataFeedTransfer();
@@ -100,11 +85,6 @@ class PriceDataFeedQueryContainerTest extends Unit
         return $priceDataFeedTransfer;
     }
 
-    /**
-     * @param \Orm\Zed\PriceProduct\Persistence\SpyPriceProductQuery $query
-     *
-     * @return array
-     */
     protected function getJoinedTablesNames(SpyPriceProductQuery $query): array
     {
         $tablesNames = [];
@@ -119,11 +99,6 @@ class PriceDataFeedQueryContainerTest extends Unit
         return $tablesNames;
     }
 
-    /**
-     * @param array $tablesArray
-     *
-     * @return array
-     */
     protected function getSortedExpectedJoinedTables(array $tablesArray): array
     {
         asort($tablesArray);
@@ -132,17 +107,11 @@ class PriceDataFeedQueryContainerTest extends Unit
         return $tablesArray;
     }
 
-    /**
-     * @return array
-     */
     protected function getDefaultJoinedTables(): array
     {
         return [];
     }
 
-    /**
-     * @return array
-     */
     protected function getTypeJoinedTables(): array
     {
         return [
